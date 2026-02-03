@@ -1,10 +1,19 @@
 from flask import Flask, jsonify
+import datetime
 
 app = Flask(__name__)
 
-@app.route("/fetch-data", methods=['GET'])
-def fetch_data():
-    message = {"message": "TODO"}
+@app.route("/data", methods=['GET'])
+def get_data():
+    message = {"time": datetime.datetime.now(),
+               "temperature": "TODO",
+               "humidity": "TODO"
+               }
+    return jsonify(message)
+
+@app.route("/prediction", methods=['GET'])
+def get_prediction():
+    message = {"prediction": "TODO"}
     return jsonify(message)
 
 # TODO
